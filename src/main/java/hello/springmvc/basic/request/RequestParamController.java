@@ -82,6 +82,8 @@ public class RequestParamController {
         return "ok";
     }
 
+    // HelloData 객체 생성 -> setter호출해서 파라미터 값들을 바인딩하고 호출해줌
+    // 입력 타입 오류가 발생하면 BindingException 발생
     @ResponseBody
     @RequestMapping("/model-attribute-v1")
     public String modelAttributeV1(@ModelAttribute HelloData helloData) {
