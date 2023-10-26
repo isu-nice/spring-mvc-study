@@ -2,6 +2,9 @@ package hello.springmvc.basic.request;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,10 +40,19 @@ public class RequestBodyStringController {
     }
 
     @PostMapping("/request-body-string-v3")
-    public HttpEntity<String> requestBodyStringV3(HttpEntity<String> httpEntity) throws IOException {
+    public HttpEntity<String> requestBodyStringV3_1(HttpEntity<String> httpEntity) {
         String messageBody = httpEntity.getBody();
+        // httpEntity.getHeaders();
         log.info("messageBody={}", messageBody);
 
         return new HttpEntity<>("ok");
+    }
+
+    @PostMapping("/request-body-string-v3")
+    public HttpEntity<String> requestBodyStringV3_2(RequestEntity<String> httpEntity) {
+        String messageBody = httpEntity.getBody();
+        log.info("messageBody={}", messageBody);
+
+        return new ResponseEntity<>("ok", HttpStatus.CREATED);
     }
 }
