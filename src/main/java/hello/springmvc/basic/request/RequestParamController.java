@@ -34,5 +34,16 @@ public class RequestParamController {
         return "ok";
     }
 
+    // 파라미터 명 일치시켜주면 괄호 안 변수명 생략 가능
+    @ResponseBody
+    @RequestMapping("/request-param-V3")
+    public String requestParamV3(
+            @RequestParam String username,
+            @RequestParam int age
+    ) {
+        log.info("username={}, age={}", username, age);
+        return "ok";
+    }
+
 
 }
