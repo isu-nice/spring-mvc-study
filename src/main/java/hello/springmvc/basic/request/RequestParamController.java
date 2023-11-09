@@ -53,5 +53,15 @@ public class RequestParamController {
         return "ok";
     }
 
+    // required = false 이므로, username 파라미터는 필수 입력값이 아니다
+    @ResponseBody
+    @RequestMapping("/request-param-required")
+    public String requestParamRequired(
+            @RequestParam(required = false) String username,
+            @RequestParam(required = true) int age) {
+        log.info("username={}, age={}", username, age);
+        return "ok";
+    }
+
 
 }
