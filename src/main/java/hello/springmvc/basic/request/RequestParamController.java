@@ -45,5 +45,13 @@ public class RequestParamController {
         return "ok";
     }
 
+    // 더 생략 가능 -> 단, 요청 파라미터와 일치해야 함
+    @ResponseBody
+    @RequestMapping("/request-param-V4")
+    public String requestParamV4(String username, int age) {
+        log.info("username={}, age={}", username, age);
+        return "ok";
+    }
+
 
 }
