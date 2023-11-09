@@ -24,5 +24,15 @@ public class RequestParamController {
         response.getWriter().write("ok");
     }
 
-   
+    @ResponseBody
+    @RequestMapping("/request-param-V2")
+    public String requestParamV2(
+            @RequestParam("username") String memberName,
+            @RequestParam("age") int memberAge
+    ) {
+        log.info("username={}, age={}", memberName, memberAge);
+        return "ok";
+    }
+
+
 }
