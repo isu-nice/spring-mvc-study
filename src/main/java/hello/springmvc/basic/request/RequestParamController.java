@@ -83,6 +83,22 @@ public class RequestParamController {
     }
 
 
+    // HelloData 객체 생성 -> setter호출해서 파라미터 값들을 바인딩하고 호출해줌
+    // 입력 타입 오류가 발생하면 BindingException 발생
+    @ResponseBody
+    @RequestMapping("/model-attribute-v1")
+    public String modelAttributeV1(@ModelAttribute HelloData helloData) {
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
 
+        return "ok";
+    }
 
+    // @ModelAttribute 생략해도 자동으로 바인딩해줌
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(HelloData helloData) {
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+
+        return "ok";
+    }
 }
