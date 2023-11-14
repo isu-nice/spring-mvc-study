@@ -35,23 +35,5 @@ public class MappingController {
         return "ok";
     }
 
-    /*
-     * 잘 사용하지는 않음
-     * consumes -> Content-Type 헤더 기반 추가 매핑
-     * produces -> Accept 헤더 기반 추가 매핑
-     */
-    @PostMapping(value = "/mapping-consumes",
-            consumes = "!application/json",
-            produces = "text/html")
-    public String mappingConsumes1() {
-        return "ok";
-    }
 
-    // 이 방식으로 적는 게 낫다
-    @PostMapping(value = "/mapping-consumes",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.TEXT_HTML_VALUE)
-    public String mappingConsumes2() {
-        return "ok";
-    }
 }
