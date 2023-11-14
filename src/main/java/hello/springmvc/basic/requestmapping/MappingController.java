@@ -46,4 +46,11 @@ public class MappingController {
         return "ok";
     }
 
+    // 이 방식으로 적는 게 낫다
+    @PostMapping(value = "/mapping-consumes",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.TEXT_HTML_VALUE)
+    public String mappingConsumes2() {
+        return "ok";
+    }
 }
