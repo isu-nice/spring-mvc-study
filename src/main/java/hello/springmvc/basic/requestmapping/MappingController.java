@@ -34,6 +34,16 @@ public class MappingController {
         log.info("mappingPath userId={}", data);
         return "ok";
     }
-
+    /*
+     * 잘 사용하지는 않음
+     * consumes -> Content-Type 헤더 기반 추가 매핑
+     * produces -> Accept 헤더 기반 추가 매핑
+     */
+    @PostMapping(value = "/mapping-consumes",
+            consumes = "!application/json",
+            produces = "text/html")
+    public String mappingConsumes1() {
+        return "ok";
+    }
 
 }
