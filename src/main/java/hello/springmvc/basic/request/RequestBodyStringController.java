@@ -41,6 +41,7 @@ public class RequestBodyStringController {
         responseWriter.write("ok");
     }
 
+    /* 아래와 똑같은 기능
     @PostMapping("/request-body-string-v3")
     public HttpEntity<String> requestBodyStringV3_1(HttpEntity<String> httpEntity) {
         String messageBody = httpEntity.getBody();
@@ -49,6 +50,7 @@ public class RequestBodyStringController {
 
         return new HttpEntity<>("ok");
     }
+    */
 
     @PostMapping("/request-body-string-v3")
     public HttpEntity<String> requestBodyStringV3_2(RequestEntity<String> httpEntity) {
